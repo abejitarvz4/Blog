@@ -1,0 +1,30 @@
+.ark-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 6px solid #7fb069;
+  border-color: #7fb069 transparent #7fb069 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+.ark-spinner span {
+  color: #b2ffb2;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}

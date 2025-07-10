@@ -1,0 +1,333 @@
+:root {
+  --primary-color: #2d5a3d;
+  --secondary-color: #4a7c59;
+  --accent-color: #7fb069;
+  --text-light: #e8f5e8;
+  --text-dark: #1a1a1a;
+  --bg-dark: #1a2e1a;
+  --bg-light: #f0f8f0;
+  --shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+body, input, textarea, button {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-light);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('https://images.alphacoders.com/134/1345140.png');
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.dark-mode {
+  --bg-dark: #0a0a0a;
+  --primary-color: #1a1a1a;
+  --text-light: #fff;
+}
+
+/* Header */
+.ark-header {
+  text-align: center;
+  padding: 2rem 0;
+  position: relative;
+}
+.ark-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.ark-logo {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color);
+  object-fit: cover;
+}
+.ark-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.ark-subtitle { font-size: 1.2rem; opacity: 0.9; }
+.dark-mode-toggle {
+  position: absolute; top: 1rem; right: 2rem;
+  background: var(--secondary-color);
+  border: none; padding: 0.5rem;
+  border-radius: 50%; font-size: 1.5rem;
+  cursor: pointer; transition: transform 0.2s;
+}
+.dark-mode-toggle:hover { transform: scale(1.1); }
+
+/* Carrusel */
+.ark-carousel {
+  max-width: 800px; margin: 0 auto 2rem;
+  height: 300px; overflow: hidden;
+  border-radius: 15px; box-shadow: var(--shadow);
+  background: #222; display: flex; flex-direction: column;
+}
+.ark-carousel-image {
+  flex: 1 1 auto; width: 100%; height: 100%;
+  overflow: hidden; border-radius: 15px 15px 0 0;
+  display: flex; align-items: stretch; justify-content: stretch;
+}
+.ark-carousel-image img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+.ark-carousel-controls {
+  display: flex; justify-content: center; align-items: center;
+  gap: 2rem; padding: 1rem 0;
+  background: rgba(0,0,0,0.15);
+  border-radius: 0 0 15px 15px;
+}
+.ark-carousel-btn {
+  background: var(--primary-color); color: #fff;
+  border: none; font-size: 2rem; border-radius: 50%;
+  width: 48px; height: 48px; cursor: pointer;
+  transition: background 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.ark-carousel-btn:hover { background: var(--accent-color); }
+.ark-carousel-dots {
+  position: absolute; bottom: 1rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 0.5rem;
+}
+.ark-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  border: none; background: rgba(255,255,255,0.5);
+  cursor: pointer; transition: background 0.3s;
+}
+.ark-dot.active { background: var(--accent-color); }
+
+/* Searchbar */
+.ark-searchbar {
+  display: flex; justify-content: center;
+  margin: 2rem 0; padding: 0 2rem;
+}
+.ark-searchbar input,
+.ark-new-post-form input,
+.ark-new-post-form textarea,
+.ark-edit-title,
+.ark-edit-body,
+.ark-comment-form textarea {
+  width: 100%; padding: 1rem; border: none;
+  border-radius: 10px; background: rgba(255,255,255,0.1);
+  color: var(--text-light); font-size: 1rem;
+  margin-bottom: 1rem; resize: vertical;
+}
+.ark-searchbar input { max-width: 500px; border-radius: 25px; }
+.ark-searchbar input::placeholder,
+.ark-new-post-form input::placeholder,
+.ark-new-post-form textarea::placeholder,
+.ark-comment-form textarea::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+.ark-searchbar input:focus {
+  outline: none; background: rgba(255,255,255,0.2);
+  transform: scale(1.02);
+}
+
+/* Botones generales */
+button,
+.ark-btn-add-post,
+.ark-btn-submit,
+.ark-btn-read,
+.ark-btn-delete,
+.ark-btn-back,
+.ark-btn-edit,
+.ark-btn-save,
+.ark-btn-cancel,
+.ark-btn-comment,
+.ark-btn-delete-comment {
+  cursor: pointer; border: none;
+  transition: all 0.3s ease;
+}
+.ark-btn-add-post,
+.ark-btn-submit,
+.ark-btn-read,
+.ark-btn-save,
+.ark-btn-comment {
+  background: var(--accent-color); color: #fff;
+  border-radius: 25px; padding: 1rem 2rem; font-size: 1rem;
+}
+.ark-btn-add-post:hover,
+.ark-btn-submit:hover,
+.ark-btn-read:hover,
+.ark-btn-save:hover,
+.ark-btn-comment:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+.ark-btn-delete,
+.ark-btn-cancel,
+.ark-btn-delete-comment {
+  background: #e74c3c; color: #fff;
+  border-radius: 10px; padding: 0.5rem 1rem;
+}
+.ark-btn-back,
+.ark-btn-edit {
+  background: var(--secondary-color); color: #fff;
+  border-radius: 20px; padding: 0.8rem 1.5rem;
+}
+.ark-btn-back:hover,
+.ark-btn-edit:hover {
+  background: var(--accent-color);
+  transform: translateX(-5px);
+}
+.ark-btn-comment:disabled {
+  opacity: 0.5; cursor: not-allowed;
+}
+
+/* Post list & cards */
+.ark-postlist-container { padding: 0 2rem; }
+.ark-postlist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem; margin-bottom: 3rem;
+}
+.ark-postcard {
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px; overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+  opacity: 1; transform: translateY(50px);
+}
+.ark-postcard.animate-in { animation: fadeInUp 0.7s; }
+.ark-postcard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.ark-postcard-image {
+  position: relative; height: 200px; overflow: hidden;
+}
+.ark-postcard-image img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.ark-postcard:hover .ark-postcard-image img { transform: scale(1.1); }
+.ark-postcard-overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex; justify-content: center; align-items: center; gap: 1rem;
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.ark-postcard:hover .ark-postcard-overlay { opacity: 1; }
+.ark-postcard-content { padding: 1.5rem; }
+.ark-postcard-content h3 {
+  margin-bottom: 1rem; color: var(--accent-color); font-size: 1.3rem;
+}
+.ark-postcard-content p { margin-bottom: 1rem; opacity: 0.9; line-height: 1.6; }
+.ark-postcard-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.9rem; opacity: 0.8;
+}
+
+/* Post detail & forms */
+.ark-post-detail { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+.ark-post-content {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem; border-radius: 15px; margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+.ark-post-content h1 {
+  color: var(--accent-color); margin-bottom: 1rem; font-size: 2rem;
+}
+.ark-post-meta {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 2rem; padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.ark-edit-form { display: flex; flex-direction: column; gap: 1rem; }
+.ark-edit-title { font-size: 1.5rem; font-weight: bold; }
+.ark-edit-body { min-height: 200px; }
+.ark-edit-buttons { display: flex; gap: 1rem; }
+
+/* New post form */
+.ark-new-post-form {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem; border-radius: 15px; margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+}
+.ark-new-post-form h3 { margin-bottom: 1rem; color: var(--accent-color); }
+
+/* Comments */
+.ark-comments-section {
+  background: rgba(255,255,255,0.1);
+  padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px);
+}
+.ark-comments-section h3 { color: var(--accent-color); margin-bottom: 2rem; }
+.ark-comment-form { margin-bottom: 2rem; }
+.ark-comments-list { display: flex; flex-direction: column; gap: 1rem; }
+.ark-comment {
+  background: rgba(255,255,255,0.05);
+  padding: 1.5rem; border-radius: 10px;
+  border-left: 4px solid var(--accent-color);
+}
+.ark-comment-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0.5rem;
+}
+.ark-comment-header strong { color: var(--accent-color); }
+
+/* Loading, error, no results */
+.ark-spinner {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 50vh; gap: 1rem;
+}
+.lds-dual-ring {
+  display: inline-block; width: 64px; height: 64px;
+}
+.lds-dual-ring:after {
+  content: " "; display: block; width: 46px; height: 46px; margin: 1px;
+  border-radius: 50%; border: 6px solid var(--accent-color);
+  border-color: var(--accent-color) transparent var(--accent-color) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+.ark-error { text-align: center; color: #e74c3c; font-size: 1.2rem; margin: 2rem; }
+.ark-no-results { text-align: center; padding: 3rem; opacity: 0.8; }
+
+/* Footer */
+.ark-footer {
+  text-align: center; padding: 2rem;
+  background: rgba(0,0,0,0.3);
+  margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Animaciones */
+@keyframes lds-dual-ring { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes bounce { 0%,20%,50%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-10px);} 60%{transform:translateY(-5px);} }
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+
+.animate-bounce { animation: bounce 2s infinite; }
+.typing-animation { overflow: hidden; white-space: nowrap; animation: typing 3s steps(40, end); }
+.fade-in { animation: fadeIn 0.8s ease-in; }
+.slide-down { animation: slideDown 0.5s ease-out; }
+.slide-in { animation: slideIn 0.5s ease-out; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ark-title { font-size: 2rem; }
+  .ark-postlist { grid-template-columns: 1fr; gap: 1.5rem; }
+  .ark-carousel { height: 200px; }
+  .ark-post-detail { padding: 0 1rem; }
+  .dark-mode-toggle { top: 0.5rem; right: 1rem; }
+}
+@media (max-width: 480px) {
+  .ark-header { padding: 1rem 0; }
+  .ark-title { font-size: 1.5rem; }
+  .ark-postlist-container, .ark-post-detail { padding: 0 1rem; }
+}
